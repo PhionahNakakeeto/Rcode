@@ -1,0 +1,283 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2639
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 R version 4.2.1 (2022-06-23) -- "Funny-Looking Kid"\
+Copyright (C) 2022 The R Foundation for Statistical Computing\
+Platform: x86_64-apple-darwin17.0 (64-bit)\
+\
+R is free software and comes with ABSOLUTELY NO WARRANTY.\
+You are welcome to redistribute it under certain conditions.\
+Type 'license()' or 'licence()' for distribution details.\
+\
+  Natural language support but running in an English locale\
+\
+R is a collaborative project with many contributors.\
+Type 'contributors()' for more information and\
+'citation()' on how to cite R or R packages in publications.\
+\
+Type 'demo()' for some demos, 'help()' for on-line help, or\
+'help.start()' for an HTML browser interface to help.\
+Type 'q()' to quit R.\
+\
+[Workspace loaded from ~/.RData]\
+\
+\
+> x <- c(100,200,300,400)\
+> sum(x)\
+[1] 1000\
+\
+> rm (x)\
+> y <- x\
+Error: object 'x' not found\
+\
+> x <- sample(x=2:100, size = 99, replace = TRUE)\
+> x\
+ [1]  78  30  37  28  72  46  63   6   8  84  45  73  30  43  30   8  34  94   3\
+[20]  67  80  47  38  98  81  49  73  63  79  57  56   8  59  79  79  79  62  88\
+[39]  90  36  48  53  93  36  78  72  41  68  34  75  33   5  65  39  94  26  96\
+[58]  10  15  35  38  12  94   2  67  80  81  71  56  52  60  31  48  53  90  20\
+[77]  53  87  95  16  47  79  60  29  29 100  30  59  78  19  14  29  69  32  55\
+[96]  33  78  39  28\
+> i =x%%2==0\
+> x[i]\
+ [1]  78  30  28  72  46   6   8  84  30  30   8  34  94  80  38  98  56   8  62\
+[20]  88  90  36  48  36  78  72  68  34  94  26  96  10  38  12  94   2  80  56\
+[39]  52  60  48  90  20  16  60 100  30  78  14  32  78  28\
+\
+> mean(x[i])\
+[1] 51.03846\
+\
+> sqrt(x[i])\
+ [1]  8.831761  5.477226  5.291503  8.485281  6.782330  2.449490  2.828427\
+ [8]  9.165151  5.477226  5.477226  2.828427  5.830952  9.695360  8.944272\
+[15]  6.164414  9.899495  7.483315  2.828427  7.874008  9.380832  9.486833\
+[22]  6.000000  6.928203  6.000000  8.831761  8.485281  8.246211  5.830952\
+[29]  9.695360  5.099020  9.797959  3.162278  6.164414  3.464102  9.695360\
+[36]  1.414214  8.944272  7.483315  7.211103  7.745967  6.928203  9.486833\
+[43]  4.472136  4.000000  7.745967 10.000000  5.477226  8.831761  3.741657\
+[50]  5.656854  8.831761  5.291503\
+\
+> mean(sqrt(x[i]))\
+[1] 6.756647\
+\
+> WeeklyTemps1 <- c(Monday="H:80 L:58", Tuesday="H:86 L:61", Wednesday="H:89 L:63",\
++                   Thursday="H:74 L:62", Friday="H:73 L:59", Saturday="H:76 L:56",\
++                   Sunday="H:80 L:58")\
+> WeeklyTemps1\
+     Monday     Tuesday   Wednesday    Thursday      Friday    Saturday      Sunday \
+"H:80 L:58" "H:86 L:61" "H:89 L:63" "H:74 L:62" "H:73 L:59" "H:76 L:56" "H:80 L:58" \
+\
+> WeeklyTemps2 <- c(Monday="H:83 L:61", Tuesday="H:82 L:61", Wednesday="H:78 L:61",\
++                   Thursday="H:80 L:62", Friday="H:86 L:61", Saturday="H:89 L:63",\
++                   Sunday="H:74 L:62")\
+> WeeklyTemps2\
+     Monday     Tuesday   Wednesday    Thursday      Friday    Saturday      Sunday \
+"H:83 L:61" "H:82 L:61" "H:78 L:61" "H:80 L:62" "H:86 L:61" "H:89 L:63" "H:74 L:62" \
+\
+> WeeklyTemps3 <- c(Monday="H:86 L:61", Tuesday="H:89 L:63", Wednesday="H:74 L:62",\
++                   Thursday="H:73 L:59", Friday="H:76 L:56", Saturday="H:80 L:58",\
++                   Sunday="H:83 L:61")\
+> WeeklyTemps3\
+     Monday     Tuesday   Wednesday    Thursday      Friday    Saturday      Sunday \
+"H:86 L:61" "H:89 L:63" "H:74 L:62" "H:73 L:59" "H:76 L:56" "H:80 L:58" "H:83 L:61" \
+\
+> WeeklyTemps4 <- c(Monday="H:82 L:61", Tuesday="H:78 L:61", Wednesday="H:80 L:58",\
++                   Thursday="H:85 L:61", Friday="H:89 L:63", Saturday="H:75 L:62",\
++                   Sunday="H:73 L:59")\
+> WeeklyTemps4\
+     Monday     Tuesday   Wednesday    Thursday      Friday    Saturday      Sunday \
+"H:82 L:61" "H:78 L:61" "H:80 L:58" "H:85 L:61" "H:89 L:63" "H:75 L:62" "H:73 L:59" \
+\
+> MonthlyTemperatures <- data.frame(WeeklyTemps1, WeeklyTemps2, WeeklyTemps3, WeeklyTemps4)\
+> MonthlyTemperatures\
+          WeeklyTemps1 WeeklyTemps2 WeeklyTemps3 WeeklyTemps4\
+Monday       H:80 L:58    H:83 L:61    H:86 L:61    H:82 L:61\
+Tuesday      H:86 L:61    H:82 L:61    H:89 L:63    H:78 L:61\
+Wednesday    H:89 L:63    H:78 L:61    H:74 L:62    H:80 L:58\
+Thursday     H:74 L:62    H:80 L:62    H:73 L:59    H:85 L:61\
+Friday       H:73 L:59    H:86 L:61    H:76 L:56    H:89 L:63\
+Saturday     H:76 L:56    H:89 L:63    H:80 L:58    H:75 L:62\
+Sunday       H:80 L:58    H:74 L:62    H:83 L:61    H:73 L:59\
+\
+\
+> write.csv(MonthlyTemperatures, "C:\\\\Users\\\\fifi\\\\Downloads\\\\MonthlyTemperatures.csv")\
+\
+> data()\
+> ?Loblolly\
+\
+> lob <- data.frame(Loblolly)\
+> lob\
+   height age Seed\
+1    4.51   3  301\
+15  10.89   5  301\
+29  28.72  10  301\
+43  41.74  15  301\
+57  52.70  20  301\
+71  60.92  25  301\
+2    4.55   3  303\
+16  10.92   5  303\
+30  29.07  10  303\
+44  42.83  15  303\
+58  53.88  20  303\
+72  63.39  25  303\
+3    4.79   3  305\
+17  11.37   5  305\
+31  30.21  10  305\
+45  44.40  15  305\
+59  55.82  20  305\
+73  64.10  25  305\
+4    3.91   3  307\
+18   9.48   5  307\
+32  25.66  10  307\
+46  39.07  15  307\
+60  50.78  20  307\
+74  59.07  25  307\
+5    4.81   3  309\
+19  11.20   5  309\
+33  28.66  10  309\
+47  41.66  15  309\
+61  53.31  20  309\
+75  63.05  25  309\
+6    3.88   3  311\
+20   9.40   5  311\
+34  25.99  10  311\
+48  39.55  15  311\
+62  51.46  20  311\
+76  59.64  25  311\
+7    4.32   3  315\
+21  10.43   5  315\
+35  27.16  10  315\
+49  40.85  15  315\
+63  51.33  20  315\
+77  60.07  25  315\
+8    4.57   3  319\
+22  10.57   5  319\
+36  27.90  10  319\
+50  41.13  15  319\
+64  52.43  20  319\
+78  60.69  25  319\
+9    3.77   3  321\
+23   9.03   5  321\
+37  25.45  10  321\
+51  38.98  15  321\
+65  49.76  20  321\
+79  60.28  25  321\
+10   4.33   3  323\
+24  10.79   5  323\
+38  28.97  10  323\
+52  42.44  15  323\
+66  53.17  20  323\
+80  61.62  25  323\
+11   4.38   3  325\
+25  10.48   5  325\
+39  27.93  10  325\
+53  40.20  15  325\
+67  50.06  20  325\
+81  58.49  25  325\
+12   4.12   3  327\
+26   9.92   5  327\
+40  26.54  10  327\
+54  37.82  15  327\
+68  48.43  20  327\
+82  56.81  25  327\
+13   3.93   3  329\
+27   9.34   5  329\
+41  26.08  10  329\
+55  37.79  15  329\
+69  48.31  20  329\
+83  56.43  25  329\
+14   3.46   3  331\
+28   9.05   5  331\
+42  25.85  10  331\
+56  39.15  15  331\
+70  49.12  20  331\
+84  59.49  25  331\
+\
+> str(lob)\
+'data.frame':	84 obs. of  3 variables:\
+ $ height: num  4.51 10.89 28.72 41.74 52.7 ...\
+ $ age   : num  3 5 10 15 20 25 3 5 10 15 ...\
+ $ Seed  : Ord.factor w/ 14 levels "329"<"327"<"325"<..: 10 10 10 10 10 10 13 13 13 13 ...\
+\
+> sapply(lob, max)\
+height    age   Seed \
+  64.1   25.0   14.0 \
+> sapply(lob, min)\
+height    age   Seed \
+  3.46   3.00   1.00 \
+> sapply(lob, length)\
+height    age   Seed \
+    84     84     84 \
+> sapply(lob, mean)\
+ height     age    Seed \
+32.3644 13.0000      NA \
+Warning message:\
+In mean.default(X[[i]], ...) :\
+  argument is not numeric or logical: returning NA\
+\
+> sapply(lob, mean, na.rm=TRUE)\
+ height     age    Seed \
+32.3644 13.0000      NA \
+Warning message:\
+In mean.default(X[[i]], ...) :\
+  argument is not numeric or logical: returning NA\
+\
+> var(lob)\
+           height       age      Seed\
+height 427.397933 161.67361 -9.339793\
+age    161.673614  62.40964  0.000000\
+Seed    -9.339793   0.00000 97.569707\
+\
+> summary(lob)\
+     height           age            Seed   \
+ Min.   : 3.46   Min.   : 3.0   329    : 6  \
+ 1st Qu.:10.47   1st Qu.: 5.0   327    : 6  \
+ Median :34.00   Median :12.5   325    : 6  \
+ Mean   :32.36   Mean   :13.0   307    : 6  \
+ 3rd Qu.:51.36   3rd Qu.:20.0   331    : 6  \
+ Max.   :64.10   Max.   :25.0   311    : 6  \
+                                (Other):48  \
+\
+> summary(lob['height'])\
+     height     \
+ Min.   : 3.46  \
+ 1st Qu.:10.47  \
+ Median :34.00  \
+ Mean   :32.36  \
+ 3rd Qu.:51.36  \
+ Max.   :64.10  \
+\
+> age.height.cor <- cor(lob$age, lob$height)\
+> age.height.cor\
+[1] 0.9899132\
+> cor.test(lob$age, lob$height, method = "spearman")\
+\
+	Spearman's rank correlation rho\
+\
+data:  lob$age and lob$height\
+S = 1374.6, p-value < 2.2e-16\
+alternative hypothesis: true rho is not equal to 0\
+sample estimates:\
+      rho \
+0.9860832 \
+\
+Warning message:\
+In cor.test.default(lob$age, lob$height, method = "spearman") :\
+  Cannot compute exact p-value with ties\
+\
+> age.height.cor2 <- cor(lob$age, lob$height, method = "spearman")\
+> age.height.cor2\
+[1] 0.9860832\
+\
+> hist(lob$height, main = "Height Histogram", xlab = "height")\
+\
+> qqnorm(lob$height)\
+> qqline(lob$height, col = "red")\
+\
+> shapiro.test(lob$height)$p\
+[1] 6.822259e-06\
+> }

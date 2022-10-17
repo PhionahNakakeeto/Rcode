@@ -1,0 +1,32 @@
+library(ggplot2)
+library(stringr)
+bar1 <- ggplot(UnitVolume, aes(fill=Name, y=UnitVolume, x=Name)) + geom_bar(Name='stack', stat='identity') 
++ scale_x_discrete(labels = function(x) str_wrap(x, width = 10))
+bar1 + theme(axis.text.x = element_text(angle = 110)) 
++ labs(x='Name', y='Unit Volume', title = 'Top 10 Products by Unit Volume')
+
+ bar2 <- ggplot(SalesRevenue, aes(fill=Name, y=Revenue, x=Name)) + geom_bar(Name='stack', stat='identity') + scale_x_discrete(labels = function(x) str_wrap(x, width = 10)) 
++ theme(axis.text.x = element_text(angle = 110)) 
++ labs(x='Name', y='Sales Revenue', title = 'Top 10 Products by Sales Revenue')
+
+pie1 <- ggplot(UnitVolume, aes(x="", y=UnitVolume, fill=Name)) + geom_bar(stat="identity", width = 1) + coord_polar("y", start=0)
+> pie1
+ pie1 + theme_void() + ggtitle("Top 10 Products by Unit Volume")
+
+ pie2 <- ggplot(SalesRevenue, aes(x="", y=Revenue, fill=Name)) + geom_bar(stat="identity", width = 1) 
++ coord_polar("y", start=0) + theme_void() + ggtitle("Top 10 Products by Sales Revenue")
+> pie2
+
+library(lubridate)
+SalesRevenue3$month <- month(SalesRevenue3$Date, label = TRUE)
+ Line1 <- ggplot(subset(SalesRevenue3, Name = "Road-250 Red,48"), aes(x=month, y=Revenue)) 
++ geom_line(color="red") + labs(title = "2013 Monthly Sales for #1 Product", x="Order Month", y="Monthly Sales")
+> Line1
+
+Line2 <- ggplot(subset(SalesRevenue3, Name = "Road-250 Red,58"), aes(x=month, y=Revenue)) 
++ geom_line(color="red") + labs(title = "2013 Monthly Sales for #2 Product", x="Order Month", y="Monthly Sales")
+> Line2
+
+ Line3 <- ggplot(subset(SalesRevenue3, Name = "Road-250 Black,48"), aes(x=month, y=Revenue)) 
++ geom_line(color="red") + labs(title = "2013 Monthly Sales for #3 Product", x="Order Month", y="Monthly Sales")
+> Line3

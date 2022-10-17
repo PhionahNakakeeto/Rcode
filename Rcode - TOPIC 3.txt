@@ -1,0 +1,46 @@
+install.packages("RODBC")
+install.packages("DBI")
+install.packages("odbc")
+library(RODBC)
+library(DBI)
+library(odbc)
+con <- dbConnect(odbc :: odbc(), "SQLServer_1", timeout = 60)
+
+SalesRevenue <- dbGetQuery(con, 
+                           "SELECT TOP 10
+                            p.Name, sod.LineTotal as Revenue, 
+                           DATEPART(yy, soh.OrderDate) as Year
+                           from Production.Product as p
+                           Inner join Sales.SalesOrderDetail as sod
+                           on p.ProductID = sod.ProductID
+                           Inner join Sales.SalesOrderHeader as soh
+                           on sod.SalesOrderID = soh.SalesOrderID
+                           WHERE Year(soh.OrderDate) = '2013'
+                           Group BY p.Name, DATEPART(yy, soh.OrderDate),
+                           sod.LineTotal"
+)
+
+UnitVolume <- dbGetQuery(con, 
+                           "SELECT TOP 10
+                            p.Name, sod.OrderQty as UnitVolume, 
+                           DATEPART(yy, soh.OrderDate) as Year
+                           from Production.Product as p
+                           Inner join Sales.SalesOrderDetail as sod
+                           on p.ProductID = sod.ProductID
+                           Inner join Sales.SalesOrderHeader as soh
+                           on sod.SalesOrderID = soh.SalesOrderID
+                           WHERE Year(soh.OrderDate) = '2013'
+                           Group BY p.Name, DATEPART(yy, soh.OrderDate),
+                           sod.OrderQty"
+)
+
+SummaryOrderAmount <- dbGetQuery(con, 
+                                 "SELECT soh.TotalDue 
+                                 from Sales.SalesOrderHeader as soh
+                                 WHERE DATEPART(yy, soh.OrderDate) = '2013'
+                                 ")
+
+library(DT)
+datatable(SalesRevenue)
+
+datatable(UnitVolume)

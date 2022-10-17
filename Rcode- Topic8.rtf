@@ -1,0 +1,102 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2639
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 R version 4.2.1 (2022-06-23) -- "Funny-Looking Kid"\
+Copyright (C) 2022 The R Foundation for Statistical Computing\
+Platform: x86_64-apple-darwin17.0 (64-bit)\
+\
+R is free software and comes with ABSOLUTELY NO WARRANTY.\
+You are welcome to redistribute it under certain conditions.\
+Type 'license()' or 'licence()' for distribution details.\
+\
+  Natural language support but running in an English locale\
+\
+R is a collaborative project with many contributors.\
+Type 'contributors()' for more information and\
+'citation()' on how to cite R or R packages in publications.\
+\
+Type 'demo()' for some demos, 'help()' for on-line help, or\
+'help.start()' for an HTML browser interface to help.\
+Type 'q()' to quit R.\
+\
+[Workspace loaded from ~/.RData]\
+\
+> library(ggplot2)\
+> ddat <- data.frame(diamonds)\
+> str(ddat)\
+'data.frame':	53940 obs. of  10 variables:\
+ $ carat  : num  0.23 0.21 0.23 0.29 0.31 0.24 0.24 0.26 0.22 0.23 ...\
+ $ cut    : Ord.factor w/ 5 levels "Fair"<"Good"<..: 5 4 2 4 2 3 3 3 1 3 ...\
+ $ color  : Ord.factor w/ 7 levels "D"<"E"<"F"<"G"<..: 2 2 2 6 7 7 6 5 2 5 ...\
+ $ clarity: Ord.factor w/ 8 levels "I1"<"SI2"<"SI1"<..: 2 3 5 4 2 6 7 3 4 5 ...\
+ $ depth  : num  61.5 59.8 56.9 62.4 63.3 62.8 62.3 61.9 65.1 59.4 ...\
+ $ table  : num  55 61 65 58 58 57 57 55 61 61 ...\
+ $ price  : int  326 326 327 334 335 336 336 337 337 338 ...\
+ $ x      : num  3.95 3.89 4.05 4.2 4.34 3.94 3.95 4.07 3.87 4 ...\
+ $ y      : num  3.98 3.84 4.07 4.23 4.35 3.96 3.98 4.11 3.78 4.05 ...\
+ $ z      : num  2.43 2.31 2.31 2.63 2.75 2.48 2.47 2.53 2.49 2.39 ...\
+> View(ddat)\
+> ddat$luxury <- ifelse(ddat$price>=10000, 1, 2)\
+> ddat$luxury <- ifelse(ddat$price>=10000, 1, 0)\
+> table(ddat$luxury)\
+\
+    0     1 \
+48717  5223 \
+> mod1 <- glm(luxury ~ carat, data = ddat, family = binomial(link = "logit"))\
+> summary(mod1)\
+\
+Call:\
+glm(formula = luxury ~ carat, family = binomial(link = "logit"), \
+    data = ddat)\
+\
+Deviance Residuals: \
+    Min       1Q   Median       3Q      Max  \
+-4.6308  -0.2201  -0.0459  -0.0217   2.7321  \
+\
+Coefficients:\
+             Estimate Std. Error z value Pr(>|z|)    \
+(Intercept) -10.54685    0.12501  -84.37   <2e-16 ***\
+carat         6.83885    0.08821   77.53   <2e-16 ***\
+---\
+Signif. codes:  0 \'91***\'92 0.001 \'91**\'92 0.01 \'91*\'92 0.05 \'91.\'92 0.1 \'91 \'92 1\
+\
+(Dispersion parameter for binomial family taken to be 1)\
+\
+    Null deviance: 34312  on 53939  degrees of freedom\
+Residual deviance: 12308  on 53938  degrees of freedom\
+AIC: 12312\
+\
+Number of Fisher Scoring iterations: 8\
+\
+> > install.packages("splines2")\
+also installing the dependency \'91RcppArmadillo\'92\
+\
+trying URL 'https://cran.rstudio.com/bin/macosx/contrib/4.2/RcppArmadillo_0.11.4.0.1.tgz'\
+Content type 'application/x-gzip' length 1604313 bytes (1.5 MB)\
+==================================================\
+downloaded 1.5 MB\
+\
+trying URL 'https://cran.rstudio.com/bin/macosx/contrib/4.2/splines2_0.4.6.tgz'\
+Content type 'application/x-gzip' length 1907360 bytes (1.8 MB)\
+==================================================\
+downloaded 1.8 MB\
+\
+\
+The downloaded binary packages are in\
+	/var/folders/5v/5rcjlhg51qq0xmpz69bn1lyh0000gp/T//Rtmpmif7mh/downloaded_packages\
+> library(splines)\
+> g <- ggplot(diamonds, aes(x=carat, y=price)) + geom_point()\
+> g\
+> help("stat_smooth")\
+\
+> g + stat_smooth(n = 3)\
+`geom_smooth()` using method = 'gam' and formula 'y ~ s(x, bs = "cs")'\
+> g + stat_smooth(n = 6)\
+`geom_smooth()` using method = 'gam' and formula 'y ~ s(x, bs = "cs")'\
+> g + stat_smooth(n = 9)\
+`geom_smooth()` using method = 'gam' and formula 'y ~ s(x, bs = "cs")'\
+> }
