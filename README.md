@@ -1,1 +1,1 @@
-# Rcode
+I've been assigned a project as a senior data analyst. I work for an independent analytics firm, contracted by AdventureWorks, to provide insights into their operations. In CPC Assignment #1, I provide some basic discovery analytics about their sales. In Assignment #2 I enhance my presentation to include a variety of visualizations. Finally in Assignment #3, I provide some predictive analytics. At every step, I use R connected to SQL Server.
